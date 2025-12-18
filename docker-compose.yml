@@ -13,6 +13,33 @@ services:
       - viktorovmv-my-netology-hw
     restart: always
 
+  pushgateway:
+    container_name: viktorovmv-netology-pushgateway
+    image: prom/pushgateway:latest
+    ports:
+      - "9091:9091"
+    networks:
+      - viktorovmv-my-netology-hw
+    restart: unless-stopped
+
+  grafana:
+    container_name: viktorovmv-netology-grafana
+    image: grafana/grafana-enterprise:latest
+    ports:
+      - "80:3000"
+    environment:
+      - GF_PATHS_CONFIG=/etc/grafana/grafana.ini
+      - GF_SECURITY_ADMIN_USER=viktorovmv
+      - GF_SECURITY_ADMIN_PASSWORD=netology
+    volumes:
+      - ./6-04/grafana/grafana.ini:/etc/grafana/grafana.ini
+      - grafana_data:/var/lib/grafana
+    networks:
+      - viktorovmv-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
 volumes:
   prometheus_data:
 
