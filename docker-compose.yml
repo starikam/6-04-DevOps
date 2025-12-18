@@ -21,6 +21,8 @@ services:
     networks:
       - viktorovmv-my-netology-hw
     restart: unless-stopped
+    depends_on:
+      - prometheus
 
   grafana:
     container_name: viktorovmv-netology-grafana
@@ -37,11 +39,14 @@ services:
     networks:
       - viktorovmv-my-netology-hw
     depends_on:
-      - prometheus
+      - pushgateway
     restart: unless-stopped
 
 volumes:
   prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
 
 networks:
   viktorovmv-my-netology-hw:
