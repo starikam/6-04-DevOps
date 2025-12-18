@@ -76,7 +76,32 @@ networks:
 
 ### Решение:
 
+version: '3.9'
 
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: viktorovmv-netology-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./6-04/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - viktorovmv-my-netology-hw
+    restart: always
+
+volumes:
+  prometheus_data:
+
+networks:
+  viktorovmv-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+
+Заодно обновил версия конфига на 3.9
 
 ---
 
