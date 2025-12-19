@@ -205,4 +205,33 @@ docker-compose.yml целиком;
 Файл [docker-compose.yml](https://github.com/starikam/6-04-DevOps/blob/main/docker-compose.yml)
 
 Скриншот команды docker ps после запуска docker-compose:
+
 ![](https://github.com/starikam/6-04-DevOps/blob/main/screenshots/2025-12-19_18-49-20.png)
+
+Скриншот графика:
+
+![](https://github.com/starikam/6-04-DevOps/blob/main/screenshots/2025-12-19_18-48-16.png)
+
+---
+
+###Задание 8
+
+Выполните действия:
+
+Остановите и удалите все контейнеры одной командой.
+В качестве решения приложите скриншот консоли с проделанными действиями.
+
+### Решение:
+
+Остановил и удалил все контейнеры командой: docker rm -f $(docker ps -aq)
+
+После ничего не осталось:
+
+![](https://github.com/starikam/6-04-DevOps/blob/main/screenshots/2025-12-19_18-50-03.png)
+
+---
+
+Я перезапустил все контейнеры, они доступны по ссылке:
+[Зайти в Графану](http://158.160.56.4)
+
+Так как ресурсы использую свои личные для этого сервера.
