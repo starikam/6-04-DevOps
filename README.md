@@ -107,6 +107,83 @@ networks:
 
 ### Задание 4
 
+Выполните действия:
 
+1) Создайте конфигурацию docker-compose для Pushgateway с именем контейнера <ваши фамилия и инициалы>-netology-pushgateway.
+2) Обеспечьте внешний доступ к порту 9091 c докер-сервера.
+
+### Решение:
+
+Добавим в docker-compose.yml
+
+```
+  pushgateway:
+    container_name: viktorovmv-netology-pushgateway
+    image: prom/pushgateway:latest
+    ports:
+      - "9091:9091"
+    networks:
+      - viktorovmv-my-netology-hw
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+```
 
 ---
+
+### Задание 5
+
+Выполните действия:
+
+1) Создайте конфигурацию docker-compose для Grafana с именем контейнера <ваши фамилия и инициалы>-netology-grafana.
+2) Добавьте необходимые тома с данными и конфигурацией (конфигурация лежит в репозитории в директории 6-04/grafana.
+3) Добавьте переменную окружения с путем до файла с кастомными настройками (должен быть в томе), в самом файле пропишите логин=<ваши фамилия и инициалы> пароль=netology.
+4) Обеспечьте внешний доступ к порту 3000 c порта 80 докер-сервера.
+
+### Решение:
+
+Добавим в docker-compose.yml
+
+```
+  grafana:
+    container_name: viktorovmv-netology-grafana
+    image: grafana/grafana-enterprise:latest
+    ports:
+      - "80:3000"
+    environment:
+      - GF_PATHS_CONFIG=/etc/grafana/grafana.ini
+      - GF_SECURITY_ADMIN_USER=viktorovmv
+      - GF_SECURITY_ADMIN_PASSWORD=netology
+    volumes:
+      - ./6-04/grafana/grafana.ini:/etc/grafana/grafana.ini
+      - grafana_data:/var/lib/grafana
+    networks:
+      - viktorovmv-my-netology-hw
+    depends_on:
+      - pushgateway
+    restart: unless-stopped
+```
+
+---
+
+### Задание 6
+
+Выполните действия.
+
+Настройте поочередность запуска контейнеров.
+Настройте режимы перезапуска для контейнеров.
+Настройте использование контейнерами одной сети.
+Запустите сценарий в detached режиме.
+
+### Решение:
+
+Контейнеры запускаются поочередно: Pushgateway → Prometheus → Grafana. 
+Добавлены режимы перезапуска always для всех контейнеров. 
+Все контейнеры используют оду сеть viktorovmv-my-netology-hw. 
+Сценарий запущен в detached-режиме с помощью `docker compose up -d`
+
+---
+
+### Задание 7
+
+
