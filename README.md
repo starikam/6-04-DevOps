@@ -76,7 +76,7 @@ networks:
 
 ### Решение:
 
-version: '3.9'
+```version: '3.9'
 
 services:
   prometheus:
@@ -100,7 +100,7 @@ networks:
     ipam:
       config:
         - subnet: 10.5.0.0/16
-
+```
 Заодно обновил версия конфига на 3.9
 
 ---
