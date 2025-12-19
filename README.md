@@ -200,4 +200,5 @@ docker-compose.yml целиком;
 
 ### Решение:
 
-
+Задания выполнены, я отправил несколько метрик чтобы построить небольшой график для наглядности.
+файл [docker-compose.yml](https://github.com/starikam/6-04-DevOps/blob/main/docker-compose.yml)
