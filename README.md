@@ -205,4 +205,4 @@ docker-compose.yml целиком;
 Файл [docker-compose.yml](https://github.com/starikam/6-04-DevOps/blob/main/docker-compose.yml)
 
 Скриншот команды docker ps после запуска docker-compose:
-(https://github.com/starikam/6-04-DevOps/blob/main/screenshots/2025-12-19_18-49-20.png)
+[](https://github.com/starikam/6-04-DevOps/blob/main/screenshots/2025-12-19_18-49-20.png)
