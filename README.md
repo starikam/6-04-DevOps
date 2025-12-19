@@ -51,7 +51,8 @@ Docker Compose нужен для упрощённой оркестровки м�
 
 ### Решение:
 
-```version: '3.8'
+```
+version: '3.8'
 
 services:
 
@@ -76,7 +77,8 @@ networks:
 
 ### Решение:
 
-```version: '3.9'
+```
+version: '3.9'
 
 services:
   prometheus:
